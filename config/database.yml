@@ -49,7 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: campfire_mysql_production
-  username: root
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
   socket: /var/lib/mysql/mysql.sock
